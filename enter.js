@@ -8,7 +8,7 @@ app.engine('html',require('express-art-template'))
 app.use('/public/',express.static('./public'))
 
 app.use(bodyParser.urlencoded({ extended: false }))
-// parse application/json
+
 app.use(bodyParser.json())
 
 
@@ -48,21 +48,12 @@ app.get('/post',function(req,res){
 	res.render('post.html')
 })
 
-// app.get('/pinglun',function(req,res){
-// 	var comment=req.query
-// 	comment.dateTime='2019-9-24'
-// 	comments.unshift(comment)
-
-// 	res.statysCode=302
-// 	res.redirect('/')
-// })
 
 app.post('/pinglun',function(req,res){
 	var comment=req.body
 	comment.dateTime='2019-9-24'
 	comments.unshift(comment)
 	res.statusCode=302
-	// res.setHeader('Location','/')
 	res.redirect('/')
 })
 
